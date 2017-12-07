@@ -1,0 +1,14 @@
+{
+  "name": "rxjs-create-tween",
+  "version": "1.0.0-pre",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
+  "license": "MIT",
+  "peerDependencies": {
+    "rxjs": ">= 5.0.0"
+  }
+}
