@@ -87,6 +87,8 @@ exports.createTween = createTween;
 
 var _Observable = __webpack_require__(1);
 
+// eslint-disable-line
+
 /**
  * Creates an observable that emits samples from an easing function on every animation frame
  * for a duration `d` ms.
