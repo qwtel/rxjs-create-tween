@@ -1,13 +1,34 @@
 {
   "name": "rxjs-create-tween",
   "version": "1.0.0-pre",
-  "description": "",
+  "description": "Create observables that sample from easing functions on animation frames",
   "main": "index.js",
+  "browser": "dist/index.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Warning: no test specified\" && exit 0",
+    "lint": "eslint .",
+    "build": "npm run build:prod & npm run build:dev & wait",
+    "build:prod": "webpack --env prod",
+    "build:dev": "webpack",
+    "prepare": "npm run lint && npm run test && npm run build",
+    "version": "npm run prepare && git add ."
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "camelcase": "^4.1.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1",
+    "yargs": "^10.0.3"
+  },
   "peerDependencies": {
     "rxjs": ">= 5.0.0"
   }
