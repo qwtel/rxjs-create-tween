@@ -1,34 +1,55 @@
 # RxJS Create Tween
 
-Creates an observable that emits samples from an easing function on every animation frame
-for a duration `d` ms.
+[![Build Status](https://travis-ci.org/qwtel/rxjs-create-tween.svg?branch=master)](https://travis-ci.org/qwtel/rxjs-create-tween)
 
-The first value will be emitted on the next animation frame,
-and is the value of the easing function at `t = 0`.
-The final value is guaranteed to be the easing function at `t = d`.
-The observable completes one frame after the final value was emitted.
+Creates an observable that emits samples from an easing function on every animation frame
+for a fixed duration.
+
+Supports arbitrary easing functions. Tested with the popular [`tween-functions`](https://www.npmjs.com/package/tween-functions) package.
 
 ## Example
 ```js
-// More easing function at
-function easeOutSine(t, b, c, d) {
-  return c * Math.sin(t/d * (Math.PI/2)) + b;
-}
+import { createTween } from 'rxjs-create-tween';
+import { easeOutSine } from 'tween-functions';
 
 click$
   .switchMap(() => {
-    const startX = 0; // px
-    const diffX = 300; // px
+    const startX   =   0; // px
+    const endX     = 300; // px
     const duration = 250; // ms
-    return createTween(easeOutSine, startX, diffX, duration);
+    return createTween(easeOutSine, startX, endX, duration);
   })
   .subscribe({
+    // emits a value on every animation frame
     next: (x) => {
-      el.style.transform = `translateX(${x})`
+      // guaranteed to start with `startX` and end with `endX`.
+      el.style.transform = `translateX(${x})`;
     },
+    // completes 1 frame after the last value was emitted
     complete: () => {
       el.style.transform = '';
-      el.classList.add('opened');
+      el.classList.add('completed');
     },
   });
+```
+
+## Source
+```js
+export function createTween(easingFunction, b, c, d, s) {
+  return Observable.create((observer) => {
+    let startTime;
+    let id = requestAnimationFrame(function sample(time) {
+      startTime = startTime || time;
+      const t = time - startTime;
+      if (t < d) {
+        observer.next(easingFunction(t, b, c, d, s));
+        id = requestAnimationFrame(sample);
+      } else {
+        observer.next(easingFunction(d, b, c, d, s));
+        id = requestAnimationFrame(() => observer.complete());
+      }
+    });
+    return () => { if (id) { cancelAnimationFrame(id); } };
+  });
+}
 ```
