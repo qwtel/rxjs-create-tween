@@ -1,0 +1,24 @@
+{
+  "name": "rxjs-create-tween",
+  "description": "Create observables that sample from easing functions on animation frames",
+  "main": "dist/index.js",
+  "authors": [
+    "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "rxjs",
+    "animation",
+    "tween",
+    "observable",
+    "requestanimationframe"
+  ],
+  "homepage": "https://github.com/qwtel/rxjs-create-tween",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
