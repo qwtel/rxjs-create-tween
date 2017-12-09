@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("rxjs/Observable"));
+		module.exports = factory(require("rxjs"));
 	else if(typeof define === 'function' && define.amd)
-		define("rxjsCreateTween", ["rxjs/Observable"], factory);
+		define("rxjsCreateTween", ["rxjs"], factory);
 	else if(typeof exports === 'object')
-		exports["rxjsCreateTween"] = factory(require("rxjs/Observable"));
+		exports["rxjsCreateTween"] = factory(require("rxjs"));
 	else
-		root["rxjsCreateTween"] = factory(root["rxjs/Observable"]);
+		root["rxjsCreateTween"] = factory(root["Rx"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -85,7 +85,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createTween = createTween;
 
-var _Observable = __webpack_require__(1);
+var _rxjs = __webpack_require__(1);
 
 // eslint-disable-line
 
@@ -109,7 +109,7 @@ var _Observable = __webpack_require__(1);
  *   animation frames for `d` ms.
  */
 function createTween(easingFunction, b, c, d, s) {
-  return _Observable.Observable.create(function (observer) {
+  return _rxjs.Observable.create(function (observer) {
     var startTime = void 0;
     var id = requestAnimationFrame(function sample(time) {
       startTime = startTime || time;
