@@ -36,7 +36,7 @@ describe('RxJS Create Tween', () => {
     });
 
     it('should be within the range', () => {
-      assert(samples.every(x => x >= 0 && x <= 1));
+      assert(samples.every(x => x >= 0 && x <= 100));
     });
 
     it('should start with 0', () => {
@@ -48,13 +48,7 @@ describe('RxJS Create Tween', () => {
     });
 
     it('should be strictly increasing', () => {
-      assert(samples.reduce(({ prev, cond }, x) => ({
-        cond: x > cond && x > prev,
-        prev: x,
-      }), {
-        cond: true,
-        prev: 0,
-      }));
+      assert(samples.reduce(([cond, prevX], x) => [x > prevX && cond, x], [true, 0]));
     });
   });
 
@@ -80,7 +74,7 @@ describe('RxJS Create Tween', () => {
     it('it should complete one frame after the last value', () => {
       const FPS = 60;
       const T = 1000 / FPS;
-      assert(arr[arr.length - 1] + T > arr[arr.length - 2]);
+      assert(arr[arr.length - 1] > arr[arr.length - 2] + T);
     });
   });
 });
