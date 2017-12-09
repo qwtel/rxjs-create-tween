@@ -35,5 +35,23 @@
   },
   "peerDependencies": {
     "rxjs": ">= 5.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwtel/rxjs-create-tween.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwtel/rxjs-create-tween/issues"
+  },
+  "homepage": "https://github.com/qwtel/rxjs-create-tween#readme",
+  "keywords": [
+    "rxjs",
+    "animation",
+    "tween",
+    "observable",
+    "requestanimationframe"
+  ]
 }
