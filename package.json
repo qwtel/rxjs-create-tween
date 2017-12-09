@@ -5,7 +5,7 @@
   "main": "index.js",
   "browser": "dist/index.min.js",
   "scripts": {
-    "test": "echo \"Warning: no test specified\" && exit 0",
+    "test": "mocha --require babel-core/register",
     "lint": "eslint .",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
@@ -18,6 +18,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "camelcase": "^4.1.0",
     "eslint": "^4.12.1",
@@ -25,6 +26,9 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
+    "mocha": "^4.0.1",
+    "rxjs": "^5.5.5",
+    "tween-functions": "^1.2.0",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1",
     "yargs": "^10.0.3"
