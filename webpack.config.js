@@ -58,7 +58,14 @@ const baseConfig = merge({
       },
     ],
   },
-  externals: [/^rxjs/],
+  externals: {
+    rxjs: {
+      commonjs: 'rxjs',
+      commonjs2: 'rxjs',
+      amd: 'rxjs',
+      root: 'Rx',
+    },
+  },
   resolve: {
     modules: [
       resolve('./node_modules'),

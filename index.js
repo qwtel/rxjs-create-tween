@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable'; // eslint-disable-line
+import { Observable } from 'rxjs'; // eslint-disable-line
 
 /**
  * Creates an observable that emits samples from an easing function on every animation frame
