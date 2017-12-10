@@ -2,18 +2,19 @@
   "name": "rxjs-create-tween",
   "version": "1.0.0-pre.2",
   "description": "Create observables that sample from easing functions on animation frames",
-  "main": "index.js",
+  "main": "create-tween.js",
   "files": [
-    "index.js",
-    "umd/"
+    "create-tween.js",
+    "dist/"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "test": "mocha --require babel-core/register",
     "lint": "eslint .",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
     "build:dev": "webpack",
-    "prepare": "npm run lint && npm run test && npm run build",
+    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "version": "npm run prepare && git add ."
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",

@@ -47,7 +47,7 @@ function envConfig() {
 
 const baseConfig = merge({
   output: {
-    path: resolve('./umd'),
+    path: resolve('./dist'),
     library,
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -83,9 +83,9 @@ const baseConfig = merge({
 
 const config = [
   merge(baseConfig, {
-    entry: resolve('./index.js'),
+    entry: resolve('./create-tween.js'),
     output: {
-      filename: `${filename}${min}.js`,
+      filename: `index${min}.js`,
     },
   }),
 ];
