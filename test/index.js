@@ -3,7 +3,7 @@
 
 require('babel-polyfill');
 
-const { createTween } = require('../create-tween.js');
+const { createTween } = require('../index.js');
 
 const assert = require('assert');
 const { Observable } = require('rxjs');
