@@ -3,7 +3,10 @@
   "version": "1.0.0-pre.1",
   "description": "Create observables that sample from easing functions on animation frames",
   "main": "index.js",
-  "browser": "dist/index.min.js",
+  "files": [
+    "index.js",
+    "umd/"
+  ],
   "scripts": {
     "test": "mocha --require babel-core/register",
     "lint": "eslint .",
@@ -53,5 +56,10 @@
     "tween",
     "observable",
     "requestanimationframe"
-  ]
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
 }

@@ -1,4 +1,3 @@
-const { readFileSync } = require('fs');
 const { resolve } = require('path');
 
 const {
@@ -16,11 +15,14 @@ const camelcase = require('camelcase');
 
 const { name: filename } = require('./package.json');
 
+const banner = String.prototype.trim.call(`
+Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+
+This source code is licensed under the MIT license found in the
+LICENSE file in the root directory of this source tree.
+`);
 const library = camelcase(filename);
 const min = env === 'prod' ? '.min' : '';
-const banner = readFileSync(resolve('LICENSE'), 'utf-8')
-  .replace(/mit license/i, '')
-  .trim();
 
 function envConfig() {
   switch (env) {
@@ -45,7 +47,7 @@ function envConfig() {
 
 const baseConfig = merge({
   output: {
-    path: resolve('./dist'),
+    path: resolve('./umd'),
     library,
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -83,7 +85,7 @@ const config = [
   merge(baseConfig, {
     entry: resolve('./index.js'),
     output: {
-      filename: `index${min}.js`,
+      filename: `${filename}${min}.js`,
     },
   }),
 ];

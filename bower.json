@@ -1,7 +1,7 @@
 {
   "name": "rxjs-create-tween",
   "description": "Create observables that sample from easing functions on animation frames",
-  "main": "dist/index.js",
+  "main": "umd/rxjs-create-tween.js",
   "authors": [
     "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
   ],

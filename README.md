@@ -5,7 +5,7 @@
 Creates an observable that emits samples from an easing function on every animation frame
 for a fixed duration.
 
-Supports arbitrary easing functions. Tested with the popular [`tween-functions`](https://www.npmjs.com/package/tween-functions) package.
+Supports arbitrary easing functions. Works well with [`tween-functions`](https://www.npmjs.com/package/tween-functions).
 
 ## Example
 ```js
