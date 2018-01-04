@@ -1,6 +1,6 @@
 {
   "name": "rxjs-create-tween",
-  "version": "1.0.0-pre.4",
+  "version": "1.0.0-pre.5",
   "description": "Create observables that sample from easing functions on animation frames",
   "main": "index.js",
   "files": [
