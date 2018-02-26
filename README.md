@@ -1,5 +1,7 @@
 # RxJS Create Tween
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/qwtel/rxjs-create-tween.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/qwtel/rxjs-create-tween.svg?branch=master)](https://travis-ci.org/qwtel/rxjs-create-tween)
 
 Creates an observable that emits samples from an easing function on every animation frame
