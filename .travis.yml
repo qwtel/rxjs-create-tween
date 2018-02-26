@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+- node
+deploy:
+  provider: npm
+  email: mail@qwtel.com
+  api_key:
+    secure: LJ8OZ5aEBgn/B1/xJXaqQwEh/lyuTt8lTVTuUWpTIC2b81n5eNUR9ZtZXK06vDVkTPB4Eop/OFhZtpomCrDalUuXs3QkiDnqI8LGjmlu9r8aTWido/2C2PYeWADcucOGoiLwLuCNkfghgUyVmdaXItTehImfkFbUZBpL7uEkMsHzMz3A2nq9GUigfjzgpfUEMME8+IoHoQVmSwhJgTtkIcofRmVqtm75X+Y/meRgfhga4mE48TwYf99f71jxDJ2Y9htFjpQHW0OYt1ryvKUNPX/hLrLR03PTxvSjckaSTV8nJZmpipQguEUhFxiwSEEY1moWtIwM0SuiOtonbGA1NsJ6DZ3ltWHIfe+TKiXOfnJGJheDATh7GZh9q28mgNVv591RjWNGC3nph1jN35YQG5wSpyZ0Ag2AwALBEGWuUNhCUYbG+F2t7UhS1RrQaf5zXNI1iiDA1rzLp3mrNqJvcCNRT42RObH1IRW8UJ/arB7nQkX+axRlhgIFF2JX8i4K/hWKROVq6Nymg7u3ogTv1eFEu605pgqOxYaixXB5Hgqmoxf1OWBEGZaHwE17iqrvb+MW5q8b5Fhumus7HV5GjVIP3dzGaua/d8HFnwAFkLZLYwnY0kbjKFkopJtAxb+2zTe4V14QlaS23dpGTqXRCeJ45zse3aBfaSuH4p8dK5k=
+  on:
+    tags: true
+    repo: qwtel/rxjs-create-tween
+  skip_cleanup: true

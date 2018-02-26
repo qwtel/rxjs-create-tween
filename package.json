@@ -9,13 +9,13 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "test": "mocha --require babel-core/register",
-    "lint": "eslint .",
+    "test": "npm run test:lint && npm run test:test",
+    "test:lint": "eslint .",
+    "test:test": "mocha --require babel-core/register",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
     "build:dev": "webpack",
-    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
-    "version": "npm run prepare && git add ."
+    "prepublishOnly": "npm run test && npm run clean && npm run build"
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",

@@ -16,7 +16,7 @@ const camelcase = require('camelcase');
 const { name: filename } = require('./package.json');
 
 const banner = String.prototype.trim.call(`
-Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 
 This source code is licensed under the MIT license found in the
 LICENSE file in the root directory of this source tree.
@@ -69,12 +69,8 @@ const baseConfig = merge({
     },
   },
   resolve: {
-    modules: [
-      resolve('./node_modules'),
-      resolve(process.env.NODE_PATH), // TODO: save?
-    ],
+    modules: [resolve('./node_modules')],
     extensions: ['.json', '.js'],
-    symlinks: true,
   },
   plugins: [
     new ModuleConcatenationPlugin(),
