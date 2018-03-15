@@ -3,8 +3,10 @@
   "version": "1.0.2",
   "description": "Create observables that sample from easing functions on animation frames",
   "main": "index.js",
+  "module": "esm/index.js",
   "files": [
     "index.js",
+    "esm/index.js",
     "dist/"
   ],
   "scripts": {
