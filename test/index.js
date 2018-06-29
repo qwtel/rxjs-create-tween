@@ -7,6 +7,7 @@ const { createTween } = require('../index.js');
 
 const assert = require('assert');
 const { Observable } = require('rxjs');
+const { tap, toArray } = require('rxjs/operators');
 const { linear, easeOutSine } = require('tween-functions');
 
 require('./raf.js');
@@ -28,7 +29,7 @@ describe('RxJS Create Tween', () => {
     let samples;
 
     before(async () => {
-      samples = await createTween(linear, 0, 1, 100).toArray().toPromise();
+      samples = await createTween(linear, 0, 1, 100).pipe(toArray()).toPromise();
     });
 
     it('should exist', () => {
@@ -56,12 +57,14 @@ describe('RxJS Create Tween', () => {
     let completed = false;
     const arr = [];
 
-    before(async () => {
-      await createTween(easeOutSine, 0, 1, 100).do({
+    before(() =>
+      createTween(easeOutSine, 0, 1, 100).pipe(tap({
         next: () => arr.push(Date.now()),
-        complete: () => { completed = true; arr.push(Date.now()); },
-      }).toPromise();
-    });
+        complete: () => {
+          completed = true;
+          arr.push(Date.now());
+        },
+      })).toPromise());
 
     it('it should complete ', () => {
       assert(completed);
