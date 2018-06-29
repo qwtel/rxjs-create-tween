@@ -22,25 +22,25 @@
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "camelcase": "^4.1.0",
-    "eslint": "^4.18.1",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "mocha": "^5.0.1",
+    "eslint-plugin-react": "^7.10.0",
+    "mocha": "^5.2.0",
     "rxjs": "^6.2.1",
     "tween-functions": "^1.2.0",
-    "webpack": "^3.11.0",
-    "webpack-merge": "^4.1.1",
-    "yargs": "^11.0.0"
+    "webpack": "^3.12.0",
+    "webpack-merge": "^4.1.3",
+    "yargs": "^11.1.0"
   },
   "peerDependencies": {
-    "rxjs": ">= 5.0.0"
+    "rxjs": ">= 6.0.0"
   },
   "directories": {
     "test": "test"
