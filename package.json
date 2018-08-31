@@ -11,32 +11,29 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "test": "npm run test:lint && npm run test:test",
-    "test:lint": "eslint .",
-    "test:test": "mocha --require babel-core/register",
+    "format": "prettier --write index.js esm/index.js webpack.config.js",
+    "test": "mocha --require @babel/register",
     "build": "npm run build:prod & npm run build:dev & wait",
-    "build:prod": "webpack --env prod",
-    "build:dev": "webpack",
+    "build:prod": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "preversion": "npm run format",
     "prepublishOnly": "npm run test && npm run clean && npm run build"
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.0",
     "camelcase": "^4.1.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.10.0",
     "mocha": "^5.2.0",
-    "rxjs": "^6.2.1",
+    "rxjs": "^6.3.0",
     "tween-functions": "^1.2.0",
-    "webpack": "^3.12.0",
-    "webpack-merge": "^4.1.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4",
     "yargs": "^11.1.0"
   },
   "peerDependencies": {
@@ -62,7 +59,7 @@
   ],
   "babel": {
     "presets": [
-      "env"
+      "@babel/preset-env"
     ]
   }
 }

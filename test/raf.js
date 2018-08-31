@@ -7,7 +7,7 @@
  * Released under the MIT license
  * github.com/Polyfiller/requestAnimationFrame
  */
-global.requestAnimationFrame = function () {
+global.requestAnimationFrame = (function() {
   var fps = 60;
   var delay = 1000 / fps;
   var animationStartTime = Date.now();
@@ -24,7 +24,7 @@ global.requestAnimationFrame = function () {
       callback(timeToCall - animationStartTime);
     }, timeout);
   };
-}();
+})();
 
 global.cancelAnimationFrame = function cancelAnimationFrame(id) {
   global.clearTimeout(id);

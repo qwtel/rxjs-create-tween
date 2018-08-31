@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs'; // eslint-disable-line
+import { Observable } from "rxjs"; // eslint-disable-line
 
 /**
  * Creates an observable that emits samples from an easing function on every animation frame
@@ -20,7 +20,7 @@ import { Observable } from 'rxjs'; // eslint-disable-line
  *   animation frames for `d` ms.
  */
 export function createTween(easingFunction, b, c, d, s) {
-  return Observable.create((observer) => {
+  return Observable.create(observer => {
     let startTime;
     let id = requestAnimationFrame(function sample(time) {
       startTime = startTime || time;
@@ -33,7 +33,11 @@ export function createTween(easingFunction, b, c, d, s) {
         id = requestAnimationFrame(() => observer.complete());
       }
     });
-    return () => { if (id) { cancelAnimationFrame(id); } };
+    return () => {
+      if (id) {
+        cancelAnimationFrame(id);
+      }
+    };
   });
 }
 
