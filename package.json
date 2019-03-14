@@ -4,8 +4,10 @@
   "description": "Create observables that sample from easing functions on animation frames",
   "main": "index.js",
   "module": "esm/index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
+    "index.d.ts",
     "esm/index.js",
     "dist/"
   ],
