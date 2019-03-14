@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "format": "prettier --write index.js esm/index.js webpack.config.js",
+    "format": "prettier --write index.js esm/index.js webpack.config.js index.d.ts",
     "test": "mocha --require @babel/register",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --mode production",
