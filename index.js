@@ -20,7 +20,7 @@ import { Observable } from "rxjs"; // eslint-disable-line
  *   animation frames for `d` ms.
  */
 export function createTween(easingFunction, b, c, d, s) {
-  return Observable.create(observer => {
+  return Observable.create(function(observer) {
     let startTime;
     let id = requestAnimationFrame(function sample(time) {
       startTime = startTime || time;
@@ -30,10 +30,12 @@ export function createTween(easingFunction, b, c, d, s) {
         id = requestAnimationFrame(sample);
       } else {
         observer.next(easingFunction(d, b, c, d, s));
-        id = requestAnimationFrame(() => observer.complete());
+        id = requestAnimationFrame(function() {
+          return observer.complete();
+        });
       }
     });
-    return () => {
+    return function() {
       if (id) {
         cancelAnimationFrame(id);
       }
