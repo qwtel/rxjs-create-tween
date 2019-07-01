@@ -56,10 +56,5 @@
     "tween",
     "observable",
     "requestanimationframe"
-  ],
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  }
+  ]
 }
