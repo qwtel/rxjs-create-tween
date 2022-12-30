@@ -30,7 +30,7 @@
     "@babel/register": "^7.5.5",
     "babel-loader": "^8.0.6",
     "camelcase": "^5.3.1",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "prettier": "^1.18.2",
     "rxjs": "^6.5.2",
     "tween-functions": "^1.2.0",
